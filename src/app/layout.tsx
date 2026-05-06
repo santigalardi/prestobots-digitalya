@@ -1,0 +1,81 @@
+import type { Metadata } from "next";
+import { Instrument_Sans, IBM_Plex_Sans, JetBrains_Mono } from "next/font/google";
+import "./globals.css";
+
+// Display sans clean — neo-grotesque moderno con personalidad sutil.
+const instrumentSans = Instrument_Sans({
+  variable: "--font-display",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  display: "swap",
+});
+
+// Sans neo-grotesque para body — técnica, refinada.
+const plexSans = IBM_Plex_Sans({
+  variable: "--font-sans",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+// Mono para números, etiquetas y badges técnicos.
+const plexMono = JetBrains_Mono({
+  variable: "--font-mono",
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  display: "swap",
+});
+
+const SITE_URL = "https://landing.prestobots.com";
+
+export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "PrestoBots Salud — Infraestructura de rentabilidad para clínicas",
+    template: "%s | PrestoBots Salud",
+  },
+  description:
+    "Bot de WhatsApp con IA integrado nativamente a Geclisa. +1M turnos gestionados, 80% autogestión, +200K chats/mes. Recuperá la facturación que tu agenda pierde en silencio.",
+  applicationName: "PrestoBots Salud",
+  keywords: [
+    "agenda médica",
+    "WhatsApp clínica",
+    "turnos automatizados",
+    "IA salud",
+    "PrestoBots",
+    "Geclisa",
+    "no-show clínicas",
+    "rentabilidad clínica",
+  ],
+  openGraph: {
+    type: "website",
+    locale: "es_AR",
+    url: SITE_URL,
+    siteName: "PrestoBots Salud",
+    title: "PrestoBots Salud — Infraestructura de rentabilidad para clínicas",
+    description:
+      "Bot de WhatsApp con IA, integrado nativamente a tu HIS. Reducí el No-Show y recuperá facturación con trazabilidad 360º.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "PrestoBots Salud — Infraestructura de rentabilidad para clínicas",
+    description:
+      "Reducí el No-Show. Trazabilidad 360º. 80% de autogestión real.",
+  },
+  robots: { index: true, follow: true },
+  icons: { icon: "/favicon.svg" },
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
+  return (
+    <html
+      lang="es"
+      className={`${instrumentSans.variable} ${plexSans.variable} ${plexMono.variable} h-full`}
+    >
+      <body className="min-h-full flex flex-col">{children}</body>
+    </html>
+  );
+}
