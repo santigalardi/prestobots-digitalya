@@ -255,6 +255,12 @@
   animation: line-draw 2s ease-out 0.5s both;
 }
 
+/* Modal fade in */
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 /* Subtle moving grid background for dark sections */
 .bg-dot-grid {
   background-image: radial-gradient(circle at 1px 1px, rgba(255, 204, 51, 0.08) 1px, transparent 0);

@@ -22,7 +22,7 @@ export default function Footer() {
               aria-label="PrestoBots — volver arriba"
             >
               <Image
-                src="/logo.png"
+                src="/logos/prestobots.png"
                 alt="PrestoBots"
                 width={229}
                 height={70}

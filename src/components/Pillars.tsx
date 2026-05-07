@@ -3,35 +3,35 @@ import Image from "next/image";
 const PILLARS = [
   {
     n: "01",
-    icon: "/icon-data.png",
+    icon: "/icons/data.png",
     title: "Trazabilidad 360°",
     description:
       "Registro de cada interacción del paciente desde el primer contacto hasta el post-servicio. Auditás todo lo que hoy no ves.",
   },
   {
     n: "02",
-    icon: "/icon-experience.png",
+    icon: "/icons/experience.png",
     title: "Scoring de pacientes",
     description:
       "Calificación automática por perfil e historial. Tu equipo prioriza a quien tiene mayor probabilidad de presentarse.",
   },
   {
     n: "03",
-    icon: "/icon-dashboard.png",
+    icon: "/icons/dashboard.png",
     title: "Dato estratégico",
     description:
       "Información estructurada para decidir: demanda insatisfecha, ocupación real, tasas de no-show por especialidad.",
   },
   {
     n: "04",
-    icon: "/icon-customization.png",
+    icon: "/icons/customization.png",
     title: "Rentabilidad operativa",
     description:
       "Algoritmos que eliminan huecos en agenda, reducen el no-show y reactivan pacientes que cancelaron.",
   },
   {
     n: "05",
-    icon: "/icon-integration.png",
+    icon: "/icons/integration.png",
     title: "Integración nativa",
     description:
       "Conectado al HIS Geclisa sin fricción de implementación. No reemplaza tu sistema, lo potencia.",

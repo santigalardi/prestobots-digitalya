@@ -106,7 +106,7 @@ export default function Differentiator() {
               }}
             />
             <Image
-              src="/illustration-analytics.png"
+              src="/illustrations/analytics.png"
               alt="Análisis y datos estratégicos PrestoBots"
               width={1123}
               height={1094}

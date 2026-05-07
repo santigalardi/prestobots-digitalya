@@ -99,7 +99,7 @@ export default function FormSection() {
 
             {/* Bocadillo decorativo más sutil */}
             <Image
-              src="/cta-bubble.png"
+              src="/illustrations/cta-bubble.png"
               alt="¿Te gustaría empezar ahora? Estoy para servirte"
               width={347}
               height={116}

@@ -139,7 +139,7 @@ export default function Hero() {
             {/* Frame del mockup — minimal */}
             <div className="relative">
               <Image
-                src="/mockup-mobile.png"
+                src="/illustrations/mockup-mobile.png"
                 alt="Bot de PrestoBots conversando con un paciente y reagendando un turno automáticamente"
                 width={667}
                 height={800}
@@ -204,19 +204,19 @@ export default function Hero() {
           <div className="flex-1 overflow-hidden relative">
             <div className="marquee items-center gap-12 md:gap-16">
               {[
-                { name: "Clínica Modelo Lanús", src: "/logo-lanus.png", h: 36 },
-                { name: "CITO", src: "/logo-cito.png", h: 28 },
-                { name: "Asistir Servicios Médicos", src: "/logo-asistir.png", h: 32 },
-                { name: "Sanatorio de la Ciudad", src: "/logo-sanatorio-ciudad.png", h: 26 },
-                { name: "Centrovisión", src: "/logo-centrovision.png", h: 32 },
-                { name: "Sanatorio San Carlos", src: "/logo-san-carlos.png", h: 30 },
+                { name: "Clínica Modelo Lanús", src: "/logos/lanus.png", h: 36 },
+                { name: "CITO", src: "/logos/cito.png", h: 28 },
+                { name: "Asistir Servicios Médicos", src: "/logos/asistir.png", h: 32 },
+                { name: "Sanatorio de la Ciudad", src: "/logos/sanatorio-ciudad.png", h: 26 },
+                { name: "Centrovisión", src: "/logos/centrovision.png", h: 32 },
+                { name: "Sanatorio San Carlos", src: "/logos/san-carlos.png", h: 30 },
                 /* Duplicado para loop continuo */
-                { name: "Clínica Modelo Lanús", src: "/logo-lanus.png", h: 36 },
-                { name: "CITO", src: "/logo-cito.png", h: 28 },
-                { name: "Asistir Servicios Médicos", src: "/logo-asistir.png", h: 32 },
-                { name: "Sanatorio de la Ciudad", src: "/logo-sanatorio-ciudad.png", h: 26 },
-                { name: "Centrovisión", src: "/logo-centrovision.png", h: 32 },
-                { name: "Sanatorio San Carlos", src: "/logo-san-carlos.png", h: 30 },
+                { name: "Clínica Modelo Lanús", src: "/logos/lanus.png", h: 36 },
+                { name: "CITO", src: "/logos/cito.png", h: 28 },
+                { name: "Asistir Servicios Médicos", src: "/logos/asistir.png", h: 32 },
+                { name: "Sanatorio de la Ciudad", src: "/logos/sanatorio-ciudad.png", h: 26 },
+                { name: "Centrovisión", src: "/logos/centrovision.png", h: 32 },
+                { name: "Sanatorio San Carlos", src: "/logos/san-carlos.png", h: 30 },
               ].map((c, i) => (
                 <div
                   key={i}
