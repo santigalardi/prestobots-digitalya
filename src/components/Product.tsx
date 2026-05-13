@@ -8,7 +8,7 @@ const STEPS = [
     label: "INICIA EL CHAT",
     title: "El paciente escribe por WhatsApp.",
     description:
-      "Comienza la interacción con el bot a través de un simple mensaje de texto o comando de voz, iniciando el proceso de cita.",
+      "Comienza la interacción con el bot enviando un mensaje por WhatsApp, iniciando el proceso de cita.",
   },
   {
     n: "02",
@@ -54,7 +54,7 @@ const CHAT = [
   },
   {
     side: "bot" as const,
-    text: "Listo ✅ Turno confirmado para el miércoles 12 de noviembre a las 15:00 con el Dr. Pereyra. Te envío recordatorio 24 hs antes.",
+    text: "Listo ✅ Turno reservado para el miércoles 12 de noviembre a las 15:00 con el Dr. Pereyra. Te envío recordatorio 24 hs antes.",
     time: "10:43",
     delay: 3.1,
   },
@@ -62,7 +62,7 @@ const CHAT = [
 
 export default function Product() {
   return (
-    <section id="producto" className="relative bg-bg overflow-hidden">
+    <section id="producto" className="relative bg-bg overflow-hidden scroll-mt-20">
       <div className="container-page py-20 md:py-28">
         {/* Header — consistente con Problem */}
         <div className="flex flex-wrap items-center justify-between gap-4 pb-6 mb-12 border-b border-ink/10">
@@ -95,8 +95,8 @@ export default function Product() {
           <div className="lg:col-span-5 lg:pt-4">
             <p className="text-[16px] md:text-[17px] text-body leading-[1.65] max-w-md">
               El paciente conversa por WhatsApp, el bot recopila los detalles
-              y confirma el turno. Tres pasos automáticos, sin formularios y
-              sin esperas para tu equipo.
+              y agenda el turno. Después confirma asistencia y envía
+              recordatorios automáticos, sin formularios ni esperas para tu equipo.
             </p>
           </div>
         </div>
@@ -271,7 +271,7 @@ export default function Product() {
               href="#form"
               className="mt-8 inline-flex items-center gap-2 font-mono text-[12px] uppercase tracking-[0.18em] text-ink font-bold hover:text-brand-yellow-deep transition-colors"
             >
-              Ver demo en vivo
+              Agendar demo
               <svg
                 width="14"
                 height="14"
@@ -285,6 +285,7 @@ export default function Product() {
             </a>
           </div>
         </div>
+
       </div>
     </section>
   );

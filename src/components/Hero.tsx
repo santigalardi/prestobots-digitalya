@@ -1,13 +1,45 @@
-import Image from "next/image";
-
 /* Datos validados del playbook DigitalYa (CLAUDE.md). NO inventar números. */
 const TICKER_ITEMS = [
-  "200.847 chats procesados este mes",
+  "200.000 chats procesados este mes",
   "+1M turnos gestionados desde 2020",
   "80% de autogestión real",
-  "Integrado nativamente a Geclisa",
+  "Integración nativa con tu HIS",
   "6 años operando en clínicas argentinas",
-  "+200 instituciones en la red Macena",
+];
+
+/* Chat ilustrativo del hero — sincronizado con la animación de 14s.
+   delay = segundos desde el inicio del loop en que aparece la burbuja. */
+const HERO_CHAT = [
+  {
+    side: "user" as const,
+    text: "Hola! Necesito turno con el Dr. Pereyra.",
+    time: "10:42",
+    delay: 0.4,
+  },
+  {
+    side: "bot" as const,
+    text: "Hola María 👋 Tengo estos horarios disponibles esta semana:",
+    time: "10:42",
+    delay: 1.6,
+  },
+  {
+    side: "bot" as const,
+    text: "• Mié 12 nov · 15:00\n• Jue 13 nov · 11:15",
+    time: "10:42",
+    delay: 2.4,
+  },
+  {
+    side: "user" as const,
+    text: "El miércoles a las 15 perfecto 🙌",
+    time: "10:43",
+    delay: 4.4,
+  },
+  {
+    side: "bot" as const,
+    text: "Listo ✅ Turno reservado para el mié 12/11 · 15:00. Te recuerdo 24 hs antes.",
+    time: "10:43",
+    delay: 5.6,
+  },
 ];
 
 /* KPIs que aparecen como "dossier strip" debajo del hero */
@@ -21,20 +53,9 @@ const KPIS = [
 export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-bg">
-      {/* Ticker LIVE — debajo del navbar */}
+      {/* Ticker — debajo del navbar */}
       <div className="border-b border-paper-line">
         <div className="container-page py-2.5 flex items-center gap-4">
-          <span className="flex items-center gap-3 shrink-0">
-            <span className="relative flex items-center justify-center w-3 h-3">
-              <span className="absolute w-3 h-3 rounded-full bg-brand-yellow/40 live-ring" />
-              <span className="absolute w-3 h-3 rounded-full bg-brand-yellow/40 live-ring-delayed" />
-              <span className="relative w-1.5 h-1.5 rounded-full bg-brand-yellow live-core shadow-[0_0_8px_rgba(255,204,51,0.8)]" />
-            </span>
-            <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-ink font-bold">
-              Live
-            </span>
-          </span>
-          <span className="hidden sm:block w-px h-3 bg-paper-line" />
           <div className="flex-1 overflow-hidden relative">
             <div className="marquee">
               {[...TICKER_ITEMS, ...TICKER_ITEMS].map((item, i) => (
@@ -85,7 +106,7 @@ export default function Hero() {
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-12 rise rise-4">
               <a href="#form" className="btn-yellow group">
-                Agendar diagnóstico gratuito
+                Agendar demo
                 <svg
                   width="16"
                   height="16"
@@ -100,13 +121,24 @@ export default function Hero() {
                   <path d="M5 12h14M13 5l7 7-7 7" />
                 </svg>
               </a>
-              <a href="#producto" className="btn-ghost">
-                Ver el producto
+              <a href="#pilares" className="btn-ghost">
+                Ver beneficios
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M12 5v14M5 12l7 7 7-7" />
                 </svg>
               </a>
             </div>
+
+            <a
+              href="#form"
+              className="inline-flex items-center gap-2 text-[13px] text-muted hover:text-ink transition-colors mb-10 rise rise-4"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-brand-yellow" />
+              Enterate si estamos integrados a tu HIS
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M5 12h14M13 5l7 7-7 7" />
+              </svg>
+            </a>
 
             {/* Mini-firma estilo editorial */}
             <div className="flex items-center gap-3 text-[13px] text-muted rise rise-5">
@@ -120,32 +152,144 @@ export default function Hero() {
                 ))}
               </div>
               <span>
-                <strong className="text-ink font-semibold">+200 clínicas</strong>{" "}
+                <strong className="text-ink font-semibold">+40 clínicas</strong>{" "}
                 ya operan con PrestoBots
               </span>
             </div>
           </div>
 
-          {/* Columna derecha — mockup del producto, limpio */}
-          <div className="lg:col-span-5 relative rise rise-3">
-            {/* Anotación derecha — narrativa del producto */}
-            <div className="hidden lg:block absolute top-1/2 -right-4 z-20">
-              <div className="bg-ink text-bg px-3.5 py-2.5 rounded-lg font-mono text-[10px] uppercase tracking-wider max-w-[180px] shadow-lg">
-                <span className="block text-brand-yellow font-bold mb-0.5">+ $ recuperado</span>
-                Hueco en agenda reasignado en 23s
-              </div>
-            </div>
+          {/* Columna derecha — iPhone 17 Pro Max con WhatsApp en vivo */}
+          <div className="lg:col-span-5 relative rise rise-3 flex justify-center">
+            {/* Glow amarillo difuso de fondo */}
+            <div
+              className="absolute -inset-6 -z-10 rounded-[3rem] opacity-50 blur-3xl pointer-events-none"
+              style={{
+                background:
+                  "radial-gradient(circle at 30% 20%, rgba(255,204,51,0.28), transparent 60%)",
+              }}
+            />
 
-            {/* Frame del mockup — minimal */}
-            <div className="relative">
-              <Image
-                src="/illustrations/mockup-mobile.png"
-                alt="Bot de PrestoBots conversando con un paciente y reagendando un turno automáticamente"
-                width={667}
-                height={800}
-                className="w-full h-auto max-w-[460px] mx-auto block"
-                priority
-              />
+            {/* iPhone 17 Pro Max — chasis grafito, Dynamic Island */}
+            <div className="relative" style={{ width: 320 }}>
+              {/* Marco exterior — grafito profundo con sutil brillo lateral */}
+              <div
+                className="relative rounded-[52px] p-[2px] shadow-[0_40px_90px_-30px_rgba(10,10,10,0.55),0_0_0_1px_rgba(0,0,0,0.08)]"
+                style={{
+                  background:
+                    "linear-gradient(135deg, #2a2a2c 0%, #1a1a1c 25%, #0e0e10 50%, #1a1a1c 75%, #2a2a2c 100%)",
+                }}
+              >
+                {/* Bisel interno (negro puro, profundidad) */}
+                <div className="rounded-[50px] p-[6px] bg-[#050505]">
+                  {/* Pantalla */}
+                  <div
+                    className="relative bg-[#ECE5DD] rounded-[44px] overflow-hidden"
+                    style={{ aspectRatio: "9 / 19.5" }}
+                  >
+                    {/* Status bar — fondo del header WhatsApp, con hueco para la Island */}
+                    <div className="relative bg-[#075E54] text-white pt-[18px] pb-1.5 px-6 flex items-center justify-between text-[11px] font-semibold">
+                      <span className="tabular-nums z-10">10:42</span>
+                      <span className="flex items-center gap-1.5 z-10">
+                        {/* Señal */}
+                        <svg width="14" height="9" viewBox="0 0 14 10" fill="currentColor">
+                          <rect x="0" y="7" width="2.5" height="3" rx="0.5" />
+                          <rect x="3.5" y="5" width="2.5" height="5" rx="0.5" />
+                          <rect x="7" y="3" width="2.5" height="7" rx="0.5" />
+                          <rect x="10.5" y="0" width="2.5" height="10" rx="0.5" />
+                        </svg>
+                        {/* Batería */}
+                        <svg width="22" height="10" viewBox="0 0 22 10" fill="none">
+                          <rect x="0.5" y="0.5" width="18" height="9" rx="2" stroke="currentColor" strokeWidth="0.8" opacity="0.85" />
+                          <rect x="2" y="2" width="14" height="6" rx="0.8" fill="currentColor" />
+                          <rect x="19.5" y="3.5" width="1.5" height="3" rx="0.5" fill="currentColor" opacity="0.85" />
+                        </svg>
+                      </span>
+                    </div>
+
+                    {/* Dynamic Island — píldora centrada, encima de la status bar */}
+                    <div className="absolute top-[10px] left-1/2 -translate-x-1/2 z-30 w-[96px] h-[28px] rounded-full bg-black shadow-[0_1px_2px_rgba(0,0,0,0.4)]">
+                      {/* Cámara TrueDepth (lente sutil, derecha) */}
+                      <span className="absolute right-[8px] top-1/2 -translate-y-1/2 w-[7px] h-[7px] rounded-full bg-[#0a0d12]">
+                        <span className="absolute inset-[1.5px] rounded-full bg-[#1a2840]/60" />
+                      </span>
+                    </div>
+
+                    {/* Header del chat — WhatsApp */}
+                    <div className="bg-[#075E54] text-white px-3.5 pt-0.5 pb-2.5 flex items-center gap-2.5">
+                      <svg width="9" height="14" viewBox="0 0 10 16" fill="none" className="text-white shrink-0">
+                        <path d="M8 1L2 8l6 7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                      <div className="w-9 h-9 rounded-full bg-brand-yellow flex items-center justify-center text-ink font-bold text-[12px] shrink-0">
+                        PB
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="font-semibold text-[13.5px] leading-tight truncate">
+                          Centro Médico Norte
+                        </p>
+                        <p className="text-[10.5px] text-white/75 flex items-center gap-1.5 mt-0.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-green-400 inline-block" />
+                          en línea · responde al instante
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Cuerpo del chat — sin min-h, deja respirar al final */}
+                    <div
+                      className="px-2.5 py-3 pb-12 space-y-1.5"
+                      style={{
+                        backgroundColor: "#ECE5DD",
+                        backgroundImage:
+                          "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'><g fill='%23d4cdbf' fill-opacity='0.4'><circle cx='8' cy='8' r='1'/><circle cx='40' cy='24' r='1'/><circle cx='64' cy='12' r='1'/><circle cx='20' cy='52' r='1'/><circle cx='56' cy='60' r='1'/><circle cx='72' cy='44' r='1'/></g></svg>\")",
+                      }}
+                    >
+                      {HERO_CHAT.map((msg, i) => (
+                        <div
+                          key={i}
+                          className={`flex hero-bubble ${
+                            msg.side === "user" ? "justify-end" : "justify-start"
+                          }`}
+                          style={{ animationDelay: `${msg.delay}s` }}
+                        >
+                          <div
+                            className={`max-w-[80%] px-2.5 py-1.5 rounded-lg text-[12.5px] leading-[1.35] shadow-sm ${
+                              msg.side === "user"
+                                ? "bg-[#DCF8C6] text-ink rounded-br-sm"
+                                : "bg-white text-ink rounded-bl-sm"
+                            }`}
+                          >
+                            <p className="whitespace-pre-line">{msg.text}</p>
+                            <span className="text-[9px] text-ink/45 float-right ml-2 mt-0.5">
+                              {msg.time}
+                              {msg.side === "user" && (
+                                <span className="text-[#34B7F1] ml-1">✓✓</span>
+                              )}
+                            </span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Input bar simulado — barra inferior tipo WhatsApp */}
+                    <div className="absolute bottom-0 left-0 right-0 bg-[#F0F0F0] px-3 pt-2 pb-6 flex items-center gap-2">
+                      <div className="flex-1 bg-white rounded-full px-3.5 py-1.5 flex items-center gap-2">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-ink/40">
+                          <circle cx="12" cy="12" r="10" />
+                          <path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01" />
+                        </svg>
+                        <span className="text-[11px] text-ink/35">Mensaje</span>
+                      </div>
+                      <div className="w-7 h-7 rounded-full bg-[#075E54] flex items-center justify-center">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="white">
+                          <path d="M3 3v8l13 1L3 13v8l19-9z" />
+                        </svg>
+                      </div>
+                    </div>
+
+                    {/* Home indicator */}
+                    <div className="absolute bottom-[6px] left-1/2 -translate-x-1/2 z-10 w-[110px] h-[4px] rounded-full bg-ink/35" />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -192,57 +336,6 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Franja de clientes — social proof al final del hero, transición al Problem */}
-      <div className="border-t border-paper-line bg-bg">
-        <div className="container-page py-8 flex flex-col md:flex-row md:items-center gap-6 md:gap-10">
-          <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted shrink-0 md:max-w-[140px] md:border-r md:border-paper-line md:pr-10">
-            Confían en
-            <br className="hidden md:block" />
-            <span className="text-ink font-bold">PrestoBots Salud</span>
-          </span>
-
-          <div className="flex-1 overflow-hidden relative">
-            <div className="marquee items-center gap-12 md:gap-16">
-              {[
-                { name: "Clínica Modelo Lanús", src: "/logos/lanus.png", h: 36 },
-                { name: "CITO", src: "/logos/cito.png", h: 28 },
-                { name: "Asistir Servicios Médicos", src: "/logos/asistir.png", h: 32 },
-                { name: "Sanatorio de la Ciudad", src: "/logos/sanatorio-ciudad.png", h: 26 },
-                { name: "Centrovisión", src: "/logos/centrovision.png", h: 32 },
-                { name: "Sanatorio San Carlos", src: "/logos/san-carlos.png", h: 30 },
-                /* Duplicado para loop continuo */
-                { name: "Clínica Modelo Lanús", src: "/logos/lanus.png", h: 36 },
-                { name: "CITO", src: "/logos/cito.png", h: 28 },
-                { name: "Asistir Servicios Médicos", src: "/logos/asistir.png", h: 32 },
-                { name: "Sanatorio de la Ciudad", src: "/logos/sanatorio-ciudad.png", h: 26 },
-                { name: "Centrovisión", src: "/logos/centrovision.png", h: 32 },
-                { name: "Sanatorio San Carlos", src: "/logos/san-carlos.png", h: 30 },
-              ].map((c, i) => (
-                <div
-                  key={i}
-                  className="shrink-0 flex items-center justify-center"
-                  style={{ height: 40 }}
-                >
-                  <Image
-                    src={c.src}
-                    alt={c.name}
-                    width={c.h * 4}
-                    height={c.h}
-                    className="opacity-60 hover:opacity-100 transition-opacity duration-200"
-                    style={{
-                      width: "auto",
-                      height: c.h,
-                      filter: "invert(1) brightness(0)",
-                    }}
-                  />
-                </div>
-              ))}
-            </div>
-            <div className="absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-bg to-transparent pointer-events-none" />
-            <div className="absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-bg to-transparent pointer-events-none" />
-          </div>
-        </div>
-      </div>
     </section>
   );
 }

@@ -63,7 +63,7 @@ export default function Testimonials() {
   return (
     <section
       id="testimonios"
-      className="relative bg-bg overflow-hidden"
+      className="relative bg-bg overflow-hidden scroll-mt-20"
     >
       <div className="container-page py-20 md:py-28">
         {/* Header — meta-bar consistente */}

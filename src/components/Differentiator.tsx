@@ -8,18 +8,13 @@ const DIFFERENTIATORS = [
   },
   {
     n: "02",
-    title: "Integración nativa con el HIS Geclisa.",
+    title: "Integración nativa con tu HIS.",
     contrast: "No es una capa que pelea con tu sistema.",
   },
   {
     n: "03",
-    title: "Automatización completa del ciclo del turno.",
-    contrast: "No resolvemos solo una pieza del flujo.",
-  },
-  {
-    n: "04",
-    title: "6 años de datos reales en clínicas operando.",
-    contrast: "No una promesa de roadmap.",
+    title: "Se adapta a tu negocio, no al revés.",
+    contrast: "No es enlatado: configuramos al flujo real de tu clínica.",
   },
 ];
 
@@ -44,7 +39,7 @@ export default function Differentiator() {
             </span>
             <span className="hidden sm:block w-px h-3 bg-white/20" />
             <span className="hidden sm:block font-mono text-[11px] uppercase tracking-[0.22em] text-white/60">
-              4 diferenciales no replicables
+              3 diferenciales no replicables
             </span>
           </div>
           <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-white/40">
@@ -62,7 +57,7 @@ export default function Differentiator() {
             >
               El único que combina
               <br />
-              <span className="text-white/50">los cuatro que importan.</span>
+              <span className="text-white/50">los tres que importan.</span>
             </h2>
 
             <ul>
@@ -115,20 +110,16 @@ export default function Differentiator() {
           </div>
         </div>
 
-        {/* Footer — cita comparativa al pie */}
-        <div className="mt-12 md:mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
-          <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/50 max-w-xl">
-            Vs. competencia generalista, vs. soluciones enlatadas y vs. promesas
-            sin tracción real.
-          </p>
+        {/* Footer — CTA centrado y grande */}
+        <div className="mt-12 md:mt-16 pt-10 border-t border-white/10 flex justify-center">
           <a
             href="#form"
-            className="inline-flex items-center gap-2 bg-brand-yellow text-ink font-bold px-6 py-3.5 rounded-full hover:bg-brand-yellow-hover transition-colors text-[14px] self-start md:self-auto"
+            className="inline-flex items-center gap-3 bg-brand-yellow text-ink font-bold px-8 py-4 rounded-full hover:bg-brand-yellow-hover transition-colors duration-200 text-[16px]"
           >
-            Ver demo en vivo
+            Agendar demo
             <svg
-              width="14"
-              height="14"
+              width="16"
+              height="16"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"

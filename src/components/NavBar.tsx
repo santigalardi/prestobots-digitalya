@@ -3,8 +3,9 @@
 import Image from "next/image";
 
 const NAV_LINKS = [
-  { href: "#producto", label: "Producto" },
   { href: "#pilares", label: "Beneficios" },
+  { href: "#producto", label: "Producto" },
+  { href: "#testimonios", label: "Testimonios" },
 ];
 
 function scrollToTop(e: React.MouseEvent<HTMLAnchorElement>) {
@@ -33,19 +34,18 @@ export default function NavBar() {
           />
         </a>
 
-        <nav className="hidden md:flex items-center gap-9">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-[14px] text-body hover:text-ink transition-colors"
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
-
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-6 md:gap-8">
+          <nav className="hidden md:flex items-center gap-7">
+            {NAV_LINKS.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-[14px] text-body hover:text-ink transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
           <a
             href="#form"
             className="hidden sm:inline-flex items-center gap-2 bg-ink text-paper-warm font-medium px-5 py-2.5 rounded-full hover:bg-ink-soft transition-colors text-[14px]"

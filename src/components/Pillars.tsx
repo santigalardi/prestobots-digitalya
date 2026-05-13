@@ -3,10 +3,10 @@ import Image from "next/image";
 const PILLARS = [
   {
     n: "01",
-    icon: "/icons/data.png",
-    title: "Trazabilidad 360°",
+    icon: "/icons/dashboard.png",
+    title: "Visibilidad total",
     description:
-      "Registro de cada interacción del paciente desde el primer contacto hasta el post-servicio. Auditás todo lo que hoy no ves.",
+      "Cada interacción del paciente queda registrada y auditable. Datos estructurados para decidir: demanda real, ocupación, tasas de ausentismo.",
   },
   {
     n: "02",
@@ -17,30 +17,23 @@ const PILLARS = [
   },
   {
     n: "03",
-    icon: "/icons/dashboard.png",
-    title: "Dato estratégico",
+    icon: "/icons/customization.png",
+    title: "Se adapta a tu negocio",
     description:
-      "Información estructurada para decidir: demanda insatisfecha, ocupación real, tasas de no-show por especialidad.",
+      "Configuramos el bot al flujo real de tu clínica. Y el modelo acompaña: pagás por consumo real, no por planes con features que no usás.",
   },
   {
     n: "04",
-    icon: "/icons/customization.png",
-    title: "Rentabilidad operativa",
-    description:
-      "Algoritmos que eliminan huecos en agenda, reducen el no-show y reactivan pacientes que cancelaron.",
-  },
-  {
-    n: "05",
     icon: "/icons/integration.png",
     title: "Integración nativa",
     description:
-      "Conectado al HIS Geclisa sin fricción de implementación. No reemplaza tu sistema, lo potencia.",
+      "Conectado a tu HIS sin fricción de implementación. No reemplaza tu sistema, lo potencia.",
   },
 ];
 
 export default function Pillars() {
   return (
-    <section id="pilares" className="relative bg-bg overflow-hidden">
+    <section id="pilares" className="relative bg-bg overflow-hidden scroll-mt-20">
       <div className="container-page py-20 md:py-28">
         {/* Header — meta-bar consistente */}
         <div className="flex flex-wrap items-center justify-between gap-4 pb-6 mb-12 border-b border-ink/10">
@@ -50,7 +43,7 @@ export default function Pillars() {
             </span>
             <span className="hidden sm:block w-px h-3 bg-ink/15" />
             <span className="hidden sm:block font-mono text-[11px] uppercase tracking-[0.22em] text-muted">
-              5 pilares · 1 sistema operativo
+              4 pilares · 1 sistema operativo
             </span>
           </div>
           <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-faint">
@@ -72,15 +65,15 @@ export default function Pillars() {
           </div>
           <div className="lg:col-span-5 lg:pt-4">
             <p className="text-[16px] md:text-[17px] text-body leading-[1.65] max-w-md">
-              Cinco capacidades que se activan juntas el día que conectás
-              PrestoBots a tu HIS. No las elegís por separado, no se compran
-              por módulo: vienen integradas porque así se sostiene la
+              Cuatro beneficios que se activan juntos el día que conectás
+              PrestoBots a tu HIS. No los elegís por separado, no se compran
+              por módulo: vienen integrados porque así se sostiene la
               rentabilidad.
             </p>
           </div>
         </div>
 
-        {/* Grid 6 celdas: 5 pilares + 1 cierre. Hairlines, no cards. */}
+        {/* Grid 5 celdas: 4 pilares + 1 cierre. Hairlines, no cards. */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border-t border-l border-ink/10">
           {PILLARS.map((p) => (
             <article
@@ -132,12 +125,12 @@ export default function Pillars() {
                 className="text-[22px] md:text-[24px] font-display leading-[1.15] tracking-[-0.02em] text-white mb-3"
                 style={{ fontWeight: 500 }}
               >
-                Los cinco operan como uno.
+                Los cuatro operan como uno.
               </h3>
               <p className="text-[14px] md:text-[15px] text-white/65 leading-[1.6] max-w-sm">
-                Cada pilar potencia al siguiente. La trazabilidad alimenta el
-                scoring, el scoring informa la rentabilidad, la integración
-                hace que todo ocurra dentro de tu sistema.
+                Los datos alimentan el scoring, el scoring prioriza a quién
+                contactar primero, y todo ocurre dentro de tu HIS — no en otra
+                pantalla más para tu equipo.
               </p>
             </div>
             <a

@@ -29,7 +29,8 @@ Estos son los **únicos números** que pueden aparecer en la landing sin nuevo O
 - **+200.000 chats procesados al mes**
 - **80% de autogestión** (% de turnos que el bot resuelve sin intervención humana)
 - **6 años de experiencia** en salud
-- **+200 clínicas** en la base instalada Macena/Geclisa (mercado direccionable)
+- **+40 clínicas** activas operando con PrestoBots (clientes reales, no mercado direccionable)
+- **+200 clínicas** en la base instalada Macena/Geclisa (mercado direccionable — NO usar como "clientes")
 - **Clientes reales nombrables:** CentroVisión, Clínica Lanús, CITO, Asistir
 
 ---

@@ -19,27 +19,32 @@ const MONTHS = [
   { m: "Dic", lost: 29 },
 ];
 
+/* 3 dolores destilados de los posts de Maru (LinkedIn de Ale).
+   Coherencia editorial con el contenido que ya está publicándose:
+   - Dolor 01 = post #5 (No-Show / costo real)
+   - Dolor 02 = post #16 (burnout de recepción), refuerza con #10 y #12
+   - Dolor 03 = post #17 (rentabilidad proactiva: retener > captar) */
 const PAINS = [
   {
     n: "01",
-    label: "VOLUMEN",
-    title: "Demasiados mensajes para responder a mano.",
+    label: "AUSENTISMO",
+    title: "Cada ausencia es facturación que se evapora.",
     description:
-      "Más de 40 mensajes por día solo para gestionar turnos. El equipo de recepción dedica horas a tareas repetitivas.",
+      "Un solo turno vacío por día son cientos de miles de pesos al mes. No es un bache en la agenda, es un agujero en la caja que casi nadie está midiendo.",
   },
   {
     n: "02",
-    label: "FUGA",
-    title: "Turnos que no se presentan.",
+    label: "OPERACIÓN",
+    title: "Tu recepción no aguanta más el WhatsApp manual.",
     description:
-      "Entre el 20% y el 35% de los turnos quedan vacíos. Sin un sistema de seguimiento, esa pérdida no se mide ni se recupera.",
+      "Cientos de mensajes diarios solo para confirmar turnos. La persona que mejor atiende a tus pacientes está agotada gestionando WhatsApp en vez de hacer lo que sabe hacer.",
   },
   {
     n: "03",
-    label: "AUTOMATIZACIÓN",
-    title: "Otras clínicas ya operan con menos personal.",
+    label: "PROACTIVIDAD",
+    title: "El paciente que ya conocés cuesta 5× menos que uno nuevo.",
     description:
-      "El estándar operativo del sector está cambiando. Las instituciones que automatizan responden más rápido y con menor costo.",
+      "Mientras gastás en captar pacientes nuevos, los que ya tenés se olvidan de su control anual. Un recordatorio automático reactiva el 20% de tu base sin un peso de publicidad.",
   },
 ];
 
@@ -69,7 +74,7 @@ export default function Problem() {
             </span>
             <span className="hidden sm:block w-px h-3 bg-white/20" />
             <span className="hidden sm:block font-mono text-[11px] uppercase tracking-[0.22em] text-white/60">
-              Tasa de no-show · banda observada
+              Tres dolores que cuestan facturación
             </span>
           </div>
         </div>
@@ -81,27 +86,172 @@ export default function Problem() {
               className="text-[40px] sm:text-[52px] lg:text-[68px] font-display leading-[1.02] tracking-[-0.03em] text-white"
               style={{ fontWeight: 500 }}
             >
-              Una de cada tres
+              Tu agenda
               <br />
-              <span className="text-white/50">consultas no se concreta.</span>
+              <span className="text-white/50">no está llena.</span>
             </h2>
           </div>
           <div className="lg:col-span-5 lg:pt-4">
             <p className="text-[16px] md:text-[17px] text-white/65 leading-[1.65] max-w-md">
-              En clínicas y consultorios, la tasa de no-show está entre el 20% y
-              el 35%. Sin un sistema de seguimiento, esos turnos no se reagendan
-              y la facturación no se recupera.
+              Huecos que nadie cubre, cancelaciones que no se reagendan,
+              demanda que llega tarde o nunca. La capacidad existe, lo que
+              falta es el sistema que la llene de forma continua.
             </p>
           </div>
         </div>
 
-        {/* Dataviz protagonista — chart de fuga mensual */}
+        {/* Dataviz protagonista — calculadora del costo real del No-Show.
+            Dato literal del post #5 de Maru en LinkedIn: 1 × $30K × 22 días = $660K/mes. */}
+        <div className="relative bg-white/[0.02] border border-white/10 rounded-3xl p-6 md:p-10 mb-12 md:mb-16 backdrop-blur-sm">
+          {/* Header de la calculadora */}
+          <div className="flex flex-wrap items-end justify-between gap-4 mb-10">
+            <div>
+              <p className="font-mono text-[12px] md:text-[13px] uppercase tracking-[0.22em] text-brand-yellow font-bold mb-3">
+                Calculadora · costo real del ausentismo
+              </p>
+              <p className="text-[16px] md:text-[17px] text-white/85 max-w-md leading-[1.55]">
+                Un solo turno vacío por día. Multiplicado por consulta promedio,
+                multiplicado por los días hábiles del mes.
+              </p>
+            </div>
+            <span className="font-mono text-[12px] uppercase tracking-[0.22em] text-white/65">
+              Basado en clínica promedio AR · 2026
+            </span>
+          </div>
+
+          {/* Operación: 3 factores → resultado */}
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1.4fr] gap-5 lg:gap-4 items-stretch">
+            {/* Factor 1 */}
+            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 flex flex-col justify-between min-h-[140px]">
+              <p className="font-mono text-[12px] md:text-[13px] uppercase tracking-[0.22em] text-white/75 font-semibold mb-3">
+                Turnos vacíos / día
+              </p>
+              <div className="flex items-baseline gap-2">
+                <span
+                  className="font-display text-[48px] md:text-[56px] leading-none text-white tabular-nums tracking-[-0.04em]"
+                  style={{ fontWeight: 600 }}
+                >
+                  1
+                </span>
+                <span className="font-mono text-[14px] text-white/70">turno</span>
+              </div>
+            </div>
+
+            {/* × */}
+            <div className="hidden lg:flex items-center justify-center">
+              <span
+                className="font-display text-[36px] text-white/30 tabular-nums"
+                style={{ fontWeight: 400 }}
+                aria-hidden
+              >
+                ×
+              </span>
+            </div>
+
+            {/* Factor 2 */}
+            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 flex flex-col justify-between min-h-[140px]">
+              <p className="font-mono text-[12px] md:text-[13px] uppercase tracking-[0.22em] text-white/75 font-semibold mb-3">
+                Consulta promedio
+              </p>
+              <div className="flex items-baseline gap-2">
+                <span
+                  className="font-display text-[48px] md:text-[56px] leading-none text-white tabular-nums tracking-[-0.04em]"
+                  style={{ fontWeight: 600 }}
+                >
+                  $30K
+                </span>
+                <span className="font-mono text-[14px] text-white/70">ARS</span>
+              </div>
+            </div>
+
+            {/* × */}
+            <div className="hidden lg:flex items-center justify-center">
+              <span
+                className="font-display text-[36px] text-white/30 tabular-nums"
+                style={{ fontWeight: 400 }}
+                aria-hidden
+              >
+                ×
+              </span>
+            </div>
+
+            {/* Factor 3 */}
+            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 flex flex-col justify-between min-h-[140px]">
+              <p className="font-mono text-[12px] md:text-[13px] uppercase tracking-[0.22em] text-white/75 font-semibold mb-3">
+                Días hábiles / mes
+              </p>
+              <div className="flex items-baseline gap-2">
+                <span
+                  className="font-display text-[48px] md:text-[56px] leading-none text-white tabular-nums tracking-[-0.04em]"
+                  style={{ fontWeight: 600 }}
+                >
+                  22
+                </span>
+                <span className="font-mono text-[14px] text-white/70">días</span>
+              </div>
+            </div>
+
+            {/* = */}
+            <div className="hidden lg:flex items-center justify-center">
+              <span
+                className="font-display text-[36px] text-brand-yellow tabular-nums"
+                style={{ fontWeight: 400 }}
+                aria-hidden
+              >
+                =
+              </span>
+            </div>
+
+            {/* Resultado */}
+            <div
+              className="relative rounded-2xl border border-brand-yellow/40 p-5 flex flex-col justify-between min-h-[140px] overflow-hidden"
+              style={{
+                background:
+                  "linear-gradient(135deg, rgba(255,204,51,0.18) 0%, rgba(255,204,51,0.05) 100%)",
+              }}
+            >
+              <span className="absolute -inset-1 -z-10 opacity-40 blur-2xl pointer-events-none"
+                style={{ background: "radial-gradient(circle at 50% 50%, var(--color-brand-yellow), transparent 70%)" }}
+              />
+              <p className="font-mono text-[12px] md:text-[13px] uppercase tracking-[0.22em] text-brand-yellow font-bold mb-3">
+                ▸ Perdés cada mes
+              </p>
+              <div className="flex items-baseline gap-2 flex-wrap">
+                <span
+                  className="font-display text-[52px] md:text-[64px] lg:text-[72px] leading-none text-brand-yellow tabular-nums tracking-[-0.04em]"
+                  style={{ fontWeight: 700 }}
+                >
+                  $660K
+                </span>
+                <span className="font-mono text-[14px] uppercase tracking-[0.18em] text-brand-yellow font-bold">
+                  ARS
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Footer de la calculadora */}
+          <div className="mt-10 pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
+            <p className="text-[15px] md:text-[16px] text-white/85 italic max-w-2xl leading-[1.55]">
+              &ldquo;No es un bache en la agenda. Es un agujero negro en la caja
+              de tu clínica.&rdquo;
+            </p>
+            <p className="font-mono text-[12px] md:text-[13px] uppercase tracking-[0.18em] text-white/70">
+              Y eso es <span className="text-brand-yellow font-bold">solo 1 ausencia</span> por día
+            </p>
+          </div>
+        </div>
+
+        {/* Síntoma secundario — chart de ausentismo.
+            OCULTO TEMPORALMENTE (decisión del cliente). Para reactivar:
+            cambiar `false` por `true`. */}
+        {false && (
         <div className="relative bg-white/[0.02] border border-white/10 rounded-3xl p-6 md:p-10 mb-16 md:mb-20 backdrop-blur-sm">
-          {/* Header del chart */}
+          {/* Header del chart — etiqueta clara: SÍNTOMA #2 */}
           <div className="flex flex-wrap items-end justify-between gap-4 mb-8">
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/40 mb-2">
-                Turnos perdidos por mes · % de la agenda
+              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-brand-yellow/80 mb-2">
+                Síntoma #2 · ausentismo · datos del sector
               </p>
               <div className="flex items-baseline gap-3">
                 <span
@@ -111,14 +261,14 @@ export default function Problem() {
                   29%
                 </span>
                 <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/50">
-                  Promedio anual
+                  Promedio anual de ausentismo
                 </span>
               </div>
             </div>
             <div className="flex items-center gap-5 text-[11px] font-mono uppercase tracking-[0.18em]">
               <span className="flex items-center gap-2 text-white/60">
                 <span className="w-3 h-3 rounded-sm bg-brand-yellow shadow-[0_0_10px_rgba(255,204,51,0.6)]" />
-                Fuga
+                Ausentismo
               </span>
               <span className="flex items-center gap-2 text-white/60">
                 <span className="w-3 h-3 rounded-sm bg-white/15" />
@@ -299,10 +449,11 @@ export default function Problem() {
               Banda observada · 20% – 35%
             </p>
             <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/40">
-              Datos del sector · Playbook 2026
+              Datos del sector · sobre turnos efectivamente agendados
             </p>
           </div>
         </div>
+        )}
 
         {/* 3 pain points debajo, compactos */}
         <div className="grid md:grid-cols-3 gap-px bg-white/10 border border-white/10 rounded-2xl overflow-hidden">

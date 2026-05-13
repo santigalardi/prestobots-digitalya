@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     template: "%s | PrestoBots Salud",
   },
   description:
-    "Bot de WhatsApp con IA integrado nativamente a Geclisa. +1M turnos gestionados, 80% autogestión, +200K chats/mes. Recuperá la facturación que tu agenda pierde en silencio.",
+    "Bot de WhatsApp con IA integrado nativamente a tu HIS. +1M turnos gestionados, 80% autogestión, +200K chats/mes. Recuperá la facturación que tu agenda pierde en silencio.",
   applicationName: "PrestoBots Salud",
   keywords: [
     "agenda médica",
@@ -45,6 +45,7 @@ export const metadata: Metadata = {
     "IA salud",
     "PrestoBots",
     "Geclisa",
+    "ausentismo clínicas",
     "no-show clínicas",
     "rentabilidad clínica",
   ],
@@ -55,13 +56,13 @@ export const metadata: Metadata = {
     siteName: "PrestoBots Salud",
     title: "PrestoBots Salud — Infraestructura de rentabilidad para clínicas",
     description:
-      "Bot de WhatsApp con IA, integrado nativamente a tu HIS. Reducí el No-Show y recuperá facturación con trazabilidad 360º.",
+      "Bot de WhatsApp con IA, integrado nativamente a tu HIS. Reducí el ausentismo y recuperá la facturación que tu agenda pierde en silencio.",
   },
   twitter: {
     card: "summary_large_image",
     title: "PrestoBots Salud — Infraestructura de rentabilidad para clínicas",
     description:
-      "Reducí el No-Show. Trazabilidad 360º. 80% de autogestión real.",
+      "Reducí el ausentismo. 80% de autogestión real. Integración nativa con tu HIS.",
   },
   robots: { index: true, follow: true },
   icons: {
@@ -73,6 +74,8 @@ export const metadata: Metadata = {
   },
 };
 
+import DemoChatBot from "@/components/DemoChatBot";
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -81,7 +84,10 @@ export default function RootLayout({
       lang="es"
       className={`${instrumentSans.variable} ${plexSans.variable} ${plexMono.variable} h-full`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <DemoChatBot />
+      </body>
     </html>
   );
 }
